@@ -3,12 +3,13 @@ import { Navigate, Route, Routes } from "react-router-dom";
 
 import path from "./constants/path";
 import { Navigation } from "./components/index";
-import { SignUpPage, LoginPage } from "./pages";
+import { SignUpPage, LoginPage, BlogsPage, MyAccountsPage, BlogDetailsPage, LandingPage } from "./pages";
 import PrivateRoute from "./PrivateRoute";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import axios from "./utils/axios";
 import { updateUser } from "./redux/user/user.reducer";
+import { CreatePostPage } from "./pages";
 
 function App() {
     const dispatch = useDispatch();
@@ -31,8 +32,10 @@ function App() {
             <Navigation />
             <div className="main-section">
                 <Routes>
-                    <Route path={path.LANDING_PAGE} exact element={<div>LANDING PAGE</div>} />
-                    <Route path={path.ALL_BLOGS} exact element={<div>Blogs</div>} />
+                    <Route path={path.LANDING_PAGE} exact element={<LandingPage />} />
+                    <Route path={path.ALL_BLOGS} exact element={<BlogsPage />} />
+                    <Route path={`${path.ALL_BLOGS}/:blogId`} exact element={<BlogDetailsPage />} />
+
                     {Object.keys(user).length === 0 ? (
                         <>
                             <Route path={path.LOGIN} exact element={<LoginPage />} />
@@ -42,7 +45,8 @@ function App() {
                     ) : (
                         <>
                             <Route element={<PrivateRoute user={user} />}>
-                                <Route path={path.APP} exact element={<div>APPLICATION</div>} />
+                                <Route path={path.APP} exact element={<MyAccountsPage />} />
+                                <Route path={`${path.APP}/create`} element={<CreatePostPage />} />
                             </Route>
                             <Route path="/*" element={<Navigate to={path.APP} />} />
                         </>

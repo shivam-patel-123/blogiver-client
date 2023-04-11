@@ -85,6 +85,7 @@ const SignUpForm = () => {
                 onInvalid={handleInvalid}
                 value={firstName}
                 error={errorMessage.firstName}
+                placeholder="John"
                 required
             />
             <InputField
@@ -97,6 +98,7 @@ const SignUpForm = () => {
                 onInvalid={handleInvalid}
                 required
                 value={lastName}
+                placeholder="Doe"
                 error={errorMessage.lastName}
             />
             <InputField
@@ -109,6 +111,7 @@ const SignUpForm = () => {
                 onInvalid={handleInvalid}
                 required
                 value={email}
+                placeholder="yourname@domain.com"
                 error={errorMessage.email}
             />
             <InputField
@@ -122,6 +125,7 @@ const SignUpForm = () => {
                 value={password}
                 error={errorMessage.password}
                 required
+                placeholder="Min 8 characters"
                 minLength="8"
             />
             <ButtonWrapper>

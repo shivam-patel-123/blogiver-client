@@ -22,6 +22,11 @@ export const Field = styled.input`
     outline: none;
     font-weight: 500;
 
+    &::placeholder {
+        color: #bfbfbf;
+        font-size: 1.4rem;
+    }
+
     &:hover {
         border: 1px solid #a1a1a1;
     }

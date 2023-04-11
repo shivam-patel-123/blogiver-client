@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { Container } from "../../../style/Container";
+import { WiderContainer } from "../../../style/Container";
 
 export const NavigationWrapper = styled.div`
-    background-color: black;
+    background-color: #242a38;
     color: white;
     position: sticky;
     top: 0;
@@ -11,14 +11,14 @@ export const NavigationWrapper = styled.div`
     z-index: 99;
     width: 100vw;
     padding-block: 1.2rem;
-    border-bottom: 1px solid #efefef;
     font-size: 1.6rem;
 `;
 
-export const NavigationContainer = styled(Container)`
+export const NavigationContainer = styled(WiderContainer)`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 1.6rem;
 `;
 
 export const NavigationLinks = styled.div`

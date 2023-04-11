@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import button from "./constant";
 
 const { SMALL, LARGE } = button.size;
-const { PRIMARY, SECONDARY } = button.variant;
+const { PRIMARY, SECONDARY, OUTLINE } = button.variant;
 
 const primaryButton = css`
     /* background-color: #50c878; */
@@ -19,6 +19,12 @@ const primaryButton = css`
 const secondaryButton = css`
     background-color: rgba(255, 255, 255, 0.2);
     color: white;
+`;
+
+const outlineButton = css`
+    border: 1px solid blue;
+    color: blue;
+    background-color: transparent;
 `;
 
 export const Button = styled.button`
@@ -42,6 +48,8 @@ export const Button = styled.button`
                 return primaryButton;
             case SECONDARY:
                 return secondaryButton;
+            case OUTLINE:
+                return outlineButton;
             default:
                 return;
         }

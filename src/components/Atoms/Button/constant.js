@@ -7,6 +7,7 @@ const button = {
     variant: {
         PRIMARY: "primary",
         SECONDARY: "secondary",
+        OUTLINE: "outline",
     },
 };
 
