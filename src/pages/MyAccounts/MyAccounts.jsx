@@ -12,10 +12,11 @@ const MyAccountsPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const myPosts = useSelector((state) => state.blog.myBlogs);
+    const user = useSelector((state) => state.user.userInfo);
 
     useEffect(() => {
         (async function () {
-            const { data: response } = await axios.get("/blog/user");
+            const { data: response } = await axios.get(`/blog/user/${user._id}`);
             dispatch(fetchMyBlogs(response.blogs));
         })();
     }, []);

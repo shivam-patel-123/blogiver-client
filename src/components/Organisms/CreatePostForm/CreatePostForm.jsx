@@ -16,6 +16,7 @@ import Dropdown from "../../Atoms/Dropdown/Dropdown";
 const CreatePostForm = () => {
     // const dispatch = useDispatch();
     const navigate = useNavigate();
+    const user = useSelector((state) => state.user.userInfo);
 
     const initialState = {
         blogTitle: "",
@@ -40,11 +41,19 @@ const CreatePostForm = () => {
             (async function () {
                 console.log(formData);
                 try {
-                    const data = await axios.post("/blog", formData, {
-                        headers: {
-                            "Content-Type": "multipart/form-data",
+                    const data = await axios.post(
+                        "/blog",
+                        {
+                            ...formData,
+                            _id: user._id,
+                            email: user.email,
                         },
-                    });
+                        {
+                            headers: {
+                                "Content-Type": "multipart/form-data",
+                            },
+                        }
+                    );
                     console.log(data);
                     navigate(path.APP);
                 } catch (err) {

@@ -28,6 +28,32 @@ function App() {
     }, []);
 
     return (
+        // <div className="App">
+        //     <Navigation />
+        //     <div className="main-section">
+        //         <Routes>
+        //             <Route path={path.LANDING_PAGE} exact element={<LandingPage />} />
+        //             <Route path={path.ALL_BLOGS} exact element={<BlogsPage />} />
+        //             <Route path={`${path.ALL_BLOGS}/:blogId`} exact element={<BlogDetailsPage />} />
+
+        //             {Object.keys(user).length === 0 ? (
+        //                 <>
+        //                     <Route path={path.LOGIN} exact element={<LoginPage />} />
+        //                     <Route path={path.SIGN_UP} exact element={<SignUpPage />} />
+        //                     <Route path="/*" exact element={<Navigate to={path.LANDING_PAGE} />} />
+        //                 </>
+        //             ) : (
+        //                 <>
+        //                     <Route element={<PrivateRoute user={user} />}>
+        //                         <Route path={path.APP} exact element={<MyAccountsPage />} />
+        //                         <Route path={`${path.APP}/create`} element={<CreatePostPage />} />
+        //                     </Route>
+        //                     <Route path="/*" element={<Navigate to={path.APP} />} />
+        //                 </>
+        //             )}
+        //         </Routes>
+        //     </div>
+        // </div>
         <div className="App">
             <Navigation />
             <div className="main-section">
@@ -35,22 +61,10 @@ function App() {
                     <Route path={path.LANDING_PAGE} exact element={<LandingPage />} />
                     <Route path={path.ALL_BLOGS} exact element={<BlogsPage />} />
                     <Route path={`${path.ALL_BLOGS}/:blogId`} exact element={<BlogDetailsPage />} />
-
-                    {Object.keys(user).length === 0 ? (
-                        <>
-                            <Route path={path.LOGIN} exact element={<LoginPage />} />
-                            <Route path={path.SIGN_UP} exact element={<SignUpPage />} />
-                            <Route path="/*" exact element={<Navigate to={path.LANDING_PAGE} />} />
-                        </>
-                    ) : (
-                        <>
-                            <Route element={<PrivateRoute user={user} />}>
-                                <Route path={path.APP} exact element={<MyAccountsPage />} />
-                                <Route path={`${path.APP}/create`} element={<CreatePostPage />} />
-                            </Route>
-                            <Route path="/*" element={<Navigate to={path.APP} />} />
-                        </>
-                    )}
+                    <Route path={path.LOGIN} exact element={<LoginPage />} />
+                    <Route path={path.SIGN_UP} exact element={<SignUpPage />} />
+                    <Route path={path.APP} exact element={<MyAccountsPage />} />
+                    <Route path={`${path.APP}/create`} element={<CreatePostPage />} />
                 </Routes>
             </div>
         </div>
